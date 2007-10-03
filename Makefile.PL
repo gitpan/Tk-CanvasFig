@@ -2,7 +2,7 @@
 # -*- perl -*-
 
 #
-# $Id: Makefile.PL,v 1.3 2002/08/08 17:45:18 eserte Exp eserte $
+# $Id: Makefile.PL,v 1.5 2007/10/03 07:51:12 eserte Exp $
 # Author: Slaven Rezic
 #
 # Copyright (C) 2001 Slaven Rezic. All rights reserved.
@@ -24,17 +24,22 @@ WriteMakefile
    'dist' => {'POSTOP'=>'-$(CHMOD) 644 $(DISTVNAME).tar$(SUFFIX)'},
 
    'ABSTRACT_FROM' => '',
-   'AUTHOR'        => 'Slaven Rezic (slaven.rezic@berlin.de)',
+   'AUTHOR'        => 'Slaven Rezic (slaven@rezic.de)',
   );
 
 sub MY::postamble {
-    if (defined $ENV{USER} && $ENV{USER} eq 'eserte') {
-	<<'EOF';
-release :: dist
-	cpan-upload $(DISTVNAME).tar$(SUFFIX)
+    my $postamble = "";
+
+    if (defined $ENV{USER} && $ENV{USER} eq 'eserte' && $^O =~ /bsd/i && -f "../../perl.release.mk") {
+	$postamble .= <<'EOF';
+
+.include "../../perl.release.mk"
+.include "../../perl.cvs.mk"
 
 EOF
     }
+
+    $postamble;
 }
 
 __END__

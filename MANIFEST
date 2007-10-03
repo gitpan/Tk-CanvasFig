@@ -5,3 +5,4 @@ Makefile.PL
 test.pl
 README
 Changes
+META.yml                                 Module meta-data (added by MakeMaker)

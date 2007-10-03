@@ -8,7 +8,7 @@ Example:
 
     $canvas = $mw->Canvas->pack;
     # Do a lot of drawings
-    $canvas->fig(-filename => "test.fig",
+    $canvas->fig(-file     => "test.fig",
                  -imagedir => "test.fig-images");
     # Save the canvas as a xfig file. If there are images, they will
     # be written as XPM files in the -imagedir. Please note that
@@ -23,6 +23,6 @@ Installation:
 Note that xfig may fail to load and save files if locale-related
 environment variables like LC_ALL are set.
 
-Comments and bug reports to Slaven Rezic (slaven.rezic@berlin.de).
+Comments and bug reports to Slaven Rezic (slaven@rezic.de).
 
 
