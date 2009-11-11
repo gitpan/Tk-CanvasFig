@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Tk-CanvasFig
-version:            1.016
+version:            1.017
 abstract:           ~
 author:
     - Slaven Rezic (slaven@rezic.de)
